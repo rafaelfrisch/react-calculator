@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementByAmount, decrementByAmount } from "../app/actions";
+import { incrementByAmount, decrementByAmount, multipleByAmount, divideByAmount } from "../app/actions";
 
 export function Calculator() {
   const number = useSelector((state) => state.counter.value);
@@ -28,6 +28,20 @@ export function Calculator() {
           }}
         >
           Subtract
+        </button>
+        <button
+          onClick={() => {
+            dispatch(multipleByAmount(Number(input) || 0));
+          }}
+        >
+          Multiple
+        </button>
+        <button
+          onClick={() => {
+            dispatch(divideByAmount(Number(input) || 0));
+          }}
+        >
+          Divide
         </button>
         <span>{number}</span>
       </div>
